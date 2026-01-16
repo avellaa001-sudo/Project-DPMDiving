@@ -6,8 +6,8 @@ const RedesignPreview: React.FC = () => {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <div className="bg-white min-h-screen text-slate-900 selection:bg-blue-100">
-      {/* Sticky Header */}
+    <div className="bg-white min-h-screen text-slate-900 selection:bg-blue-100 pb-20 md:pb-0">
+      {/* Sticky Header - Botón oculto en mobile por jerarquía */}
       <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
@@ -21,39 +21,41 @@ const RedesignPreview: React.FC = () => {
           <a href="#" className="hover:text-blue-600 transition-colors">Destinos</a>
           <a href="#" className="hover:text-blue-600 transition-colors">Blog</a>
         </div>
-        <button className="bg-blue-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
+        <button className="hidden md:block bg-blue-600 text-white px-5 py-2.5 rounded-full font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200">
           Reservar Bautismo
         </button>
       </nav>
 
       {/* Hero Section con Trust Badges */}
-      <section className="relative h-[90vh] flex items-center overflow-hidden">
+      <section className="relative min-h-[90vh] md:h-[90vh] flex items-center overflow-hidden py-16 md:py-0">
         <img 
-          src="https://picsum.photos/seed/diving_hero/1920/1080" 
+          src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=1920" 
           className="absolute inset-0 w-full h-full object-cover scale-105" 
-          alt="Buceo en Argentina" 
+          alt="Buceo real en aguas cristalinas con fauna marina" 
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-transparent"></div>
         <div className="relative container mx-auto px-6">
           <div className="max-w-2xl text-white">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="bg-blue-600 px-3 py-1 rounded text-xs font-black uppercase tracking-widest">Premium AR</span>
-              <div className="flex items-center gap-1 text-amber-400 text-xs font-bold">
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
-                <i className="fas fa-star"></i>
+            <div className="flex flex-wrap items-center gap-3 mb-6 md:mb-6">
+              <span className="bg-blue-600 px-3 py-1 rounded text-[10px] md:text-xs font-black uppercase tracking-widest whitespace-nowrap">Premium AR</span>
+              <div className="flex items-center gap-1 text-amber-400 text-[10px] md:text-xs font-bold bg-black/20 md:bg-transparent px-2 md:px-0 py-1 md:py-0 rounded-full md:rounded-none backdrop-blur-sm md:backdrop-blur-none">
+                <div className="flex gap-0.5">
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                  <i className="fas fa-star"></i>
+                </div>
                 <span className="text-white ml-1">4.9 Google Reviews</span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold leading-tight mb-6">
+            <h1 className="text-4xl md:text-7xl font-extrabold leading-tight mb-6 tracking-tight">
               Tu próxima aventura empieza <span className="text-blue-400">bajo el agua.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-200 mb-10 leading-relaxed font-light">
+            <p className="text-lg md:text-2xl text-slate-200 mb-8 md:mb-10 leading-relaxed font-light">
               Descubrí el silencio del océano con los mejores instructores certificados de Argentina. Seguridad total y equipo incluido.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10 md:mb-12">
               <button className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all shadow-xl shadow-blue-900/20">
                 <i className="fas fa-calendar-check"></i>
                 Elegí tu fecha
@@ -63,16 +65,16 @@ const RedesignPreview: React.FC = () => {
                 Hablá con un instructor
               </button>
             </div>
-            <div className="flex items-center gap-8 opacity-70">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PADI_Logo.png" className="h-8 grayscale invert object-contain" alt="PADI" />
-              <div className="h-8 w-px bg-white/20"></div>
-              <span className="text-xs font-bold uppercase tracking-widest">Certificación Internacional</span>
+            <div className="flex flex-wrap items-center gap-6 md:gap-8 opacity-70">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/PADI_Logo.png" className="h-6 md:h-8 grayscale invert object-contain" alt="PADI" />
+              <div className="hidden sm:block h-8 w-px bg-white/20"></div>
+              <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest">Certificación Internacional</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits - Refined */}
+      {/* Benefits */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
@@ -89,7 +91,7 @@ const RedesignPreview: React.FC = () => {
         </div>
       </section>
 
-      {/* NUEVA SECCIÓN: Roadmap "Tu camino al azul" */}
+      {/* Roadmap "Tu camino al azul" */}
       <section className="py-24 bg-white border-y border-slate-100 overflow-hidden">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -97,9 +99,7 @@ const RedesignPreview: React.FC = () => {
             <p className="text-slate-600 text-lg">Hacemos que tu primer buceo sea fácil, seguro y sobre todo, inolvidable.</p>
           </div>
           <div className="relative">
-            {/* Connector Line (Desktop) */}
             <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-100 -translate-y-1/2"></div>
-            
             <div className="grid md:grid-cols-4 gap-12 relative z-10">
               {ROADMAP.map((step, idx) => (
                 <div key={idx} className="bg-white flex flex-col items-center text-center">
@@ -115,13 +115,13 @@ const RedesignPreview: React.FC = () => {
         </div>
       </section>
 
-      {/* NUEVA SECCIÓN: Storytelling "Por qué buceamos" */}
+      {/* Storytelling "Por qué buceamos" */}
       <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row items-center gap-16">
             <div className="md:w-1/2 relative">
                <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-600/20 blur-3xl rounded-full"></div>
-               <img src="https://picsum.photos/seed/diving_team/600/800" className="rounded-3xl shadow-2xl relative z-10" alt="Nuestro Equipo" />
+               <img src="https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&q=80&w=800" className="rounded-3xl shadow-2xl relative z-10 object-cover aspect-[3/4]" alt="Instructor guiando inmersión de buceo" />
                <div className="absolute -bottom-6 -right-6 bg-blue-600 p-8 rounded-2xl z-20 hidden md:block">
                   <p className="text-3xl font-black">+15</p>
                   <p className="text-xs uppercase font-bold tracking-widest text-blue-100">Años de pasión</p>
@@ -156,17 +156,21 @@ const RedesignPreview: React.FC = () => {
             <p className="text-slate-600 text-lg">Lugares elegidos estratégicamente por su baja dificultad y alta belleza.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <div key={item} className="group relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg">
-                <img src={`https://picsum.photos/seed/diving${item+20}/800/1000`} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="Destino" />
+            {[
+              { id: 1, name: 'Puerto Madryn', img: 'https://images.unsplash.com/photo-1560670682-10630760777b?auto=format&fit=crop&q=80&w=800', badge: 'Ideal Principiantes', desc: 'La capital nacional del buceo. Aguas tranquilas y visibilidad perfecta para tu bautismo.' },
+              { id: 2, name: 'Península Valdés', img: 'https://images.unsplash.com/photo-1605342416045-81643666b6c2?auto=format&fit=crop&q=80&w=800', badge: 'Naufragios únicos', desc: 'Explorá estructuras históricas bajo el mar con total seguridad y visibilidad.' },
+              { id: 3, name: 'Las Grutas', img: 'https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&q=80&w=800', badge: 'Aguas Cálidas', desc: 'El paraíso submarino del norte de la Patagonia, ideal para observar arrecifes locales.' }
+            ].map((item) => (
+              <div key={item.id} className="group relative rounded-3xl overflow-hidden aspect-[4/5] shadow-lg">
+                <img src={item.img} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={`Experiencia de buceo en ${item.name}`} />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
                 <div className="absolute bottom-0 p-8 w-full">
                   <div className="flex gap-2 mb-3">
-                    <span className="bg-green-500 text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Ideal Principiantes</span>
+                    <span className="bg-green-500 text-white text-[10px] font-bold uppercase px-2 py-1 rounded">{item.badge}</span>
                     <span className="bg-blue-500 text-white text-[10px] font-bold uppercase px-2 py-1 rounded">Cupos hoy</span>
                   </div>
-                  <h3 className="text-white text-3xl font-bold mb-2">Puerto Madryn</h3>
-                  <p className="text-slate-300 text-sm mb-6">La capital nacional del buceo. Aguas tranquilas y visibilidad perfecta para tu bautismo.</p>
+                  <h3 className="text-white text-3xl font-bold mb-2">{item.name}</h3>
+                  <p className="text-slate-300 text-sm mb-6">{item.desc}</p>
                   <button className="w-full bg-white text-slate-900 py-3 rounded-xl font-bold hover:bg-blue-500 hover:text-white transition-all">
                     Ver Fechas Disponibles
                   </button>
@@ -177,7 +181,7 @@ const RedesignPreview: React.FC = () => {
         </div>
       </section>
 
-      {/* NUEVA SECCIÓN: Blog / Autoridad */}
+      {/* Blog / Autoridad */}
       <section className="py-24 bg-slate-50">
         <div className="container mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
@@ -190,7 +194,11 @@ const RedesignPreview: React.FC = () => {
           <div className="grid md:grid-cols-3 gap-8">
             {BLOG_POSTS.map((post, idx) => (
               <article key={idx} className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-                <img src={post.image} className="w-full h-48 object-cover" alt={post.title} />
+                <img 
+                  src={idx === 0 ? 'https://images.unsplash.com/photo-1544551763-8dd44758c2dd?auto=format&fit=crop&q=80&w=500' : (idx === 1 ? 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&q=80&w=500' : 'https://images.unsplash.com/photo-1590053416045-81643666b6c2?auto=format&fit=crop&q=80&w=500')} 
+                  className="w-full h-48 object-cover" 
+                  alt={post.title} 
+                />
                 <div className="p-8">
                   <span className="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-3">{post.category}</span>
                   <h3 className="text-xl font-bold mb-3 leading-tight hover:text-blue-600 cursor-pointer">{post.title}</h3>
@@ -205,7 +213,7 @@ const RedesignPreview: React.FC = () => {
         </div>
       </section>
 
-      {/* FAQ Refined */}
+      {/* FAQ */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6 max-w-3xl">
           <div className="text-center mb-12">
@@ -233,7 +241,7 @@ const RedesignPreview: React.FC = () => {
         </div>
       </section>
 
-      {/* Footer / CTA Final - Con Formulario mejorado */}
+      {/* Final CTA */}
       <section className="py-24 bg-blue-600 text-white relative overflow-hidden">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div className="container mx-auto px-6 relative z-10">
@@ -263,8 +271,8 @@ const RedesignPreview: React.FC = () => {
         </div>
       </section>
 
-      {/* Persistent WhatsApp con nombre del asesor */}
-      <div className="fixed bottom-8 right-8 z-[100] group">
+      {/* Persistent WhatsApp - Posición ajustada en mobile para evitar colisión con el sticky CTA */}
+      <div className="fixed bottom-24 md:bottom-8 right-8 z-[100] group">
         <div className="absolute bottom-full right-0 mb-4 bg-white text-slate-900 px-4 py-2 rounded-xl shadow-xl border border-slate-100 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
            <p className="text-xs font-bold">¡Hola! Soy Juan 🤿</p>
            <p className="text-[10px] text-slate-500">¿Dudas sobre tu primer buceo?</p>
@@ -275,6 +283,13 @@ const RedesignPreview: React.FC = () => {
         >
           <i className="fab fa-whatsapp"></i>
         </a>
+      </div>
+
+      {/* Mobile Sticky CTA - Única modificación funcional para mobile UX */}
+      <div className="fixed bottom-0 left-0 w-full bg-white/95 backdrop-blur-md border-t border-slate-100 p-4 md:hidden z-[110] shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+        <button className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold shadow-lg shadow-blue-200 active:scale-[0.98] transition-transform">
+          Reservar Bautismo
+        </button>
       </div>
 
       <footer className="bg-slate-50 py-12 border-t border-slate-100">
